@@ -2,12 +2,6 @@
 // Auteur : Dumbo Marie
 
 
-// -------------- Environnement --------------
-import { array_number_erreur } from './javascript_test_je1.js';
-import { to_check } from './dumbo_marie_test_javascript_algo_ex1.js';
-import { check_sudoku, test_duplicate } from './dumbo_marie_test_javascript_algo_ex2.js';
-
-
 // -------------- Exercice 3 --------------
 // ------ Fonctions annexes ------
 
@@ -49,8 +43,6 @@ function error_ligne(t_dim2){
   }
 }
 
-document.getElementById("errligne").innerHTML = error_ligne(array_number_erreur);
-
 
 // ------ 2 ------
 
@@ -71,8 +63,6 @@ function error_col(t_dim2){
     }
   }
 }
-
-document.getElementById("errcol").innerHTML = error_col(array_number_erreur);
 
 
 
@@ -130,20 +120,18 @@ function error_reg(t_dim2, row, col){
   return ["Region "+ reg+" incorrect", val_reg];
 }
 
-document.getElementById("errreg").innerHTML = error_reg(array_number_erreur);
-
 
 // ------ 4 ------
 
-function htmlresult(tableau){
-  let htmlTable = "<table border='1|1'><tr><td>"+ tableau[0]+"</td>";
-  for (let i in tableau[1]){
-        htmlTable+="<td>"+ tableau[1][i] +"</td>";
+function htmlresult(tableau_ligne, tableau_col, tableau_reg){
+  let htmlTable = "<table border='1|1'>";
+  for (var tab of [tableau_ligne, tableau_col, tableau_reg]){
+    htmlTable += "<tr><td>" + tab[0] +"</td>";
+    for (let i in tab[1]){
+        htmlTable+="<td>"+ tab[1][i] +"</td>";
       }
-  htmlTable+="</tr></table>";
-  return htmlTable;
+      htmlTable+="</tr>";
+    }
+  htmlTable+="</table>";
+  document.getElementById("erreur_sudoku").innerHTML =htmlTable;
 }
-
-document.getElementById("tableaul").innerHTML = htmlresult(error_ligne(array_number_erreur));
-document.getElementById("tableauc").innerHTML = htmlresult(error_col(array_number_erreur));
-document.getElementById("tableaur").innerHTML = htmlresult(error_reg(array_number_erreur));

@@ -1,9 +1,6 @@
 // HNInstitut : Test JavaScript - Exercice 1
 // Auteur : Dumbo Marie
 
-// -------------- Environnement --------------
-import { array_number } from './javascript_test_je1.js';
-
 
 // -------------- Exercice 1 --------------
 // --------- 1 ---------
@@ -19,28 +16,20 @@ to_verify[6]= new Array(9);
 to_verify[7]= new Array(9);
 to_verify[8]= new Array(9);
 
-document.getElementById("to_verif").innerHTML = to_verify;
-document.getElementById("to_verif0").innerHTML = to_verify[0];
-
 
 // --------- 2 ---------
 
-function fill_table(t_dim1 = array_number){
+function fill_table(t_dim1){
   for (let i in t_dim1){
     to_verify[i] = t_dim1[i].split(' ');
   }
-  document.getElementById("filled").innerHTML = to_verify;
-  document.getElementById("filled0").innerHTML = to_verify[0];
   return to_verify;
 }
 
 
 // --------- 3 ---------
 
-var to_verify_filled = fill_table(array_number);
-
-
-function display_table(t_dim2 = to_verify_filled){
+function display_table(t_dim2){
   let htmlTable = "<table border='1|1'>";
   for (let i in t_dim2) {
       htmlTable+="<tr>";
@@ -52,12 +41,6 @@ function display_table(t_dim2 = to_verify_filled){
       htmlTable+="</tr>";
   }
   htmlTable+="</table>";
-  return htmlTable;
+  
+  document.getElementById("sudoku").innerHTML =htmlTable;
 }
-
-var to_check = display_table(to_verify_filled);
-document.getElementById("tableau").innerHTML = to_check;
-
-
-// -------------- Exportation --------------
-export { to_verify_filled as to_check };

@@ -2,11 +2,9 @@
 // Auteur : Dumbo Marie
 
 
-// -------------- Environnement --------------
-import { array_number } from './javascript_test_je1.js';
-
-
 // -------------- Exercice 2 --------------
+// -------- Fonctions annexes --------
+
 function test_duplicate(l_chiffres_ori){
   let l_chiffres_verif = new Set();
   let elem = 0;
@@ -19,6 +17,9 @@ function test_duplicate(l_chiffres_ori){
   } while (l_chiffres_ori.length !== 0);
   return [true,,];
 }
+
+
+// -------- 1 et 2 --------
 
 function check_sudoku(tableau){
   const regex = /(\d\s){8}\d/;
@@ -39,10 +40,3 @@ function check_sudoku(tableau){
   }
   return [true,'Bravo ! Votre sudoku est correct'];
 }
-
-document.getElementById("exo2").innerHTML = check_sudoku(array_number)[0];
-
-
-// -------------- Exportation --------------
-
-export { check_sudoku, test_duplicate};

@@ -1,5 +1,3 @@
-export { array_number, array_number_erreur };
-
 var array_number = new Array(9);
 array_number[0]= "4 2 7 3 5 1 9 8 6";
 array_number[1]= "9 8 3 7 6 2 5 1 4";
